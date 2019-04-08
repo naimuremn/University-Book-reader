@@ -1,0 +1,393 @@
+//Main activity
+package com.example.naimuremon.universitybookreader;
+
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity {
+
+
+    private EditText Name;
+    private EditText Password;
+    private TextView Info;
+    private Button Login;
+    private int counter = 5;
+    private Button Help;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+
+
+        Name = (EditText)findViewById(R.id.etName);
+        Password = (EditText)findViewById(R.id.etPassword);
+        Info = (TextView)findViewById(R.id.tvInfo);
+        Login = (Button)findViewById(R.id.btnLogin);
+        Help = (Button) findViewById(R.id.btn15);
+        Help.setOnClickListener(new View.OnClickListener() {
+             @Override
+            public void onClick(View v) {
+                openActivity23();
+            }
+        });
+
+        Info.setText("No of attempt reamining : 5");
+
+        Login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                validate(Name.getText().toString(), Password.getText().toString());
+            }
+        });
+
+    }
+
+    private void openActivity23(){
+
+        Intent intent5 = new Intent(MainActivity.this, help.class);
+        startActivity(intent5);
+
+    }
+
+    private void validate (String userName , String userPassword)
+    {
+        if((userName.equals("Emon")) && (userPassword.equals("7312"))){
+
+            Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+            startActivity(intent);
+        }else{
+            counter--;
+
+            Info.setText("No of attempt remaining :" + String.valueOf(counter));
+
+            if(counter == 0){
+                Login.setEnabled(false);
+            }
+        }
+    }
+}
+//
+//Main activity2
+package com.example.naimuremon.universitybookreader;
+
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+public class Main2Activity extends AppCompatActivity {
+
+    private Button Depart;
+    private Button Extra;
+    private Button Help;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main2);
+
+
+        Extra = (Button)findViewById(R.id.btn2);
+        Extra.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity5();
+            }
+        });
+
+        Help = (Button) findViewById(R.id.btn67);
+        Help.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity23();
+            }
+        });
+
+        Depart = (Button)findViewById(R.id.btn1);
+        Depart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity2();
+            }
+        });
+    }
+
+    private void openActivity23(){
+
+        Intent intent5 = new Intent(Main2Activity.this, help.class);
+        startActivity(intent5);
+
+    }
+
+    public void openActivity5(){
+        Intent intent = new Intent(Main2Activity.this,Main4Activity.class);
+        startActivity(intent);
+    }
+
+    public void openActivity2(){
+
+        Intent intent = new Intent(Main2Activity.this,Main3Activity.class);
+        startActivity(intent);
+    }
+}
+//
+//main activity 3
+package com.example.naimuremon.universitybookreader;
+
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.ActionMode;
+import android.view.View;
+import android.widget.Button;
+
+public class Main3Activity extends AppCompatActivity {
+
+
+    private Button Cse;
+    private Button Eee;
+    private Button Bba;
+    private Button Add;
+    private Button Ete;
+    private Button Help;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main3);
+
+
+        Cse = (Button)findViewById(R.id.btn7);
+        Cse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity3();
+            }
+        });
+        Eee = (Button)findViewById(R.id.btn88);
+        Eee.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity0();
+            }
+        });
+        Bba = (Button)findViewById(R.id.btn89);
+        Bba.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity0();
+            }
+        });
+        Add = (Button)findViewById(R.id.btn90);
+        Add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity0();
+            }
+        });
+        Ete = (Button)findViewById(R.id.btn91);
+        Ete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity0();
+            }
+        });
+        Help = (Button) findViewById(R.id.btn68);
+        Help.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity03();
+            }
+        });
+
+    }
+
+
+    public void openActivity3(){
+        Intent intent = new Intent(Main3Activity.this,Main5Activity.class);
+        startActivity(intent);
+    }
+    public void openActivity0(){
+        Intent intent6 = new Intent(Main3Activity.this,update.class);
+        startActivity(intent6);
+    }
+    public void openActivity03(){
+        Intent intent0 = new Intent(Main3Activity.this,help.class);
+        startActivity(intent0);
+    }
+}
+//
+// main activity 4
+package com.example.naimuremon.universitybookreader;
+
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+public class Main4Activity extends AppCompatActivity {
+
+    private Button Help;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main4);
+
+        Help = (Button) findViewById(R.id.btn99);
+        Help.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity04();
+            }
+        });
+
+
+    }
+
+    public void openActivity04(){
+        Intent intent9 = new Intent(Main4Activity.this,help.class);
+        startActivity(intent9);
+    }
+}
+//
+//main activity 5
+package com.example.naimuremon.universitybookreader;
+
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+public class Main5Activity extends AppCompatActivity {
+
+
+    private Button Book;
+    private Button Slide;
+    private Button Help;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main5);
+
+
+        Book = (Button)findViewById(R.id.btn11);
+        Book.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity11();
+            }
+        });
+
+        Slide = (Button)findViewById(R.id.slide);
+        Book.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity19();
+            }
+        });
+
+        Help = (Button) findViewById(R.id.button15);
+        Help.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity23();
+            }
+        });
+    }
+
+    public void openActivity11(){
+        Intent intent = new Intent(Main5Activity.this,Main6Activity.class);
+        startActivity(intent);
+    }
+
+    public void openActivity19(){
+        Intent intent2 = new Intent(Main5Activity.this,Main6Activity.class);
+        startActivity(intent2);
+    }
+
+    private void openActivity23(){
+
+        Intent intent5 = new Intent(Main5Activity.this, help.class);
+        startActivity(intent5);
+
+    }
+}
+// 
+//main acitivity 6
+package com.example.naimuremon.universitybookreader;
+
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+public class Main6Activity extends AppCompatActivity {
+
+
+    Button btn_book1, btn_book2;
+
+    private Button Help;
+
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main6);
+
+       btn_book1=(Button)findViewById(R.id.book1);
+       btn_book2=(Button)findViewById(R.id.book2);
+
+
+       btn_book1.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+
+               Intent i = new Intent(Main6Activity.this,book1.class);
+               startActivity(i);
+
+           }
+       });
+
+        btn_book2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i2 = new Intent(Main6Activity.this,book2.class);
+                startActivity(i2);
+            }
+        });
+
+        Help = (Button) findViewById(R.id.button17);
+        Help.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity23();
+            }
+        });
+
+    }
+
+    private void openActivity23(){
+
+        Intent intent5 = new Intent(Main6Activity.this, help.class);
+        startActivity(intent5);
+
+    }
+}
+/////////
